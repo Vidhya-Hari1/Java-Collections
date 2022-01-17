@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+
+
+public class First{
+	public static void main(String[] args) {
+		List<Integer> arraylist = new ArrayList<Integer>();
+		
+		List<Integer> linkedlist = new LinkedList<Integer>();
+		
+		doTimings("Arraylist", arraylist);
+		doTimings("Linkedlist", linkedlist);
+		
+	}
+	
+	private static void doTimings(String type, List<Integer> list) {
+		
+		// Add items at beginning of list - linked list better
+		for(int i = 0; i < 1E5; i++) {
+			list.add(i);
+		}
+		
+		long start  = System.currentTimeMillis();
+		
+		// Add items at end of list - array list better
+		for(int i = 0; i < 1E5; i++) {
+			list.add(i);
+		}
+		
+		// Add items elsewhere in  list(start or middle) - linked list better
+		for(int i = 0; i < 1E5; i++) {
+			list.add(0, i);
+		}
+		
+		
+		long end = System.currentTimeMillis();
+		
+		System.out.println("time taken = " + (end - start) + " for " + type );
+	}
+}

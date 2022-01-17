@@ -1,0 +1,35 @@
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class First{
+	public static void main(String[] args) {
+		
+		Map<String, Integer> hashMap = new HashMap<String, Integer>();
+		Map<String, Integer> linkedHashMap = new LinkedHashMap<String, Integer>();
+		Map<String, Integer> treeMap = new TreeMap<String, Integer>();
+		
+	testMap(hashMap);   // does not maintain order
+	testMap(linkedHashMap);  // maintains input order
+	testMap(treeMap);   // sorts by keys in natural order
+		
+	}
+		public static void testMap(Map<String, Integer> map) {
+		map.put("apples", 5);
+		map.put("mangoes", 8);
+		map.put("guavas", 6);
+		map.put("oranges", 9);
+		
+		
+		
+		
+		
+		for(String key : map.keySet()) {
+			int value = map.get(key);
+			System.out.println(key + " - " + value);
+		}
+		
+		}
+
+	}

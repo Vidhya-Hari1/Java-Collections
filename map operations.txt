@@ -1,0 +1,40 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class First{
+	public static void main(String[] args) {
+		
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		
+		// Adding values
+		map.put("apples", 5);
+		map.put("mangoes", 8);
+		map.put("guavas", 6);
+		map.put("oranges", 9);
+		
+		// Retrieving a value
+		System.out.println(map.get("mangoes"));
+		
+		// Iterating using entrySet()
+		for(Map.Entry<String, Integer> entry: map.entrySet()) {
+			String key = entry.getKey();
+			int value = entry.getValue();
+			
+			System.out.println(key + " : " + value);
+		}
+		
+		//Iterating using keySet()
+		for(String key : map.keySet()) {
+			int value = map.get(key);
+			System.out.println(key + " - " + value);
+		}
+		
+		// Getting only values
+		for(String key : map.keySet()) {
+			
+			System.out.println(key);
+		}
+
+
+	}
+}

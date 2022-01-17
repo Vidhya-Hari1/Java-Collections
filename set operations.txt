@@ -1,0 +1,70 @@
+import java.util.HashSet;
+
+
+public class First{
+	public static void main(String[] args) {
+		
+		HashSet<String> set1 = new HashSet<String>();
+		
+	    // Adding
+		set1.add("blue");
+		set1.add("red");
+		set1.add("yellow");
+		set1.add("green");
+		set1.add("brown");
+		
+		
+		
+		// Retrieving
+		System.out.println(set1);
+		
+	
+	   // Iterating
+	    for(String value : set1) {
+	    	System.out.println(value);
+	    }
+	    
+	    // Find if a set contains a particular item
+	    System.out.println(set1.contains("blue"));
+	    System.out.println(set1.contains("pink"));
+	    
+	    
+	    // Check if set is empty
+	    System.out.println(set1.isEmpty());
+	    
+	    
+	    // Count number of elements in set
+	    System.out.println(set1.size());   // 5 elements
+	    
+	    
+	    
+	    // set2 contains some common elements with set1 and also some new elements
+        HashSet<String> set2 = new HashSet<String>();
+		
+        set2.add("blue");
+		set2.add("black");
+		set2.add("white");
+		set2.add("brown");
+		set2.add("purple");
+		
+		
+		 // Intersection of set1 and set2 (common elements)
+		HashSet<String> intersection = new HashSet<String>(set1);
+		intersection.retainAll(set2);
+		
+		System.out.println(intersection);  // blue, brown
+		
+		// Difference between two sets (elements in set1 but not in set2)
+		HashSet<String> difference = new HashSet<String>(set1);
+		difference.removeAll(set2);
+		System.out.println(difference);
+		
+		
+		// Remove element from set
+	    set1.remove("green");
+	    System.out.println(set1);   // green is removed
+	    System.out.println(set1.size()); // 4 elements now
+	    
+	    }
+
+	}

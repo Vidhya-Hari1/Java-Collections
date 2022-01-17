@@ -1,0 +1,149 @@
+
+
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+
+public class First{
+	public static void main(String[] args) {
+		
+		
+		// Using methods that throw exceptions
+		System.out.println("Using methods that throw exceptions");
+		
+		Queue <Integer> q1  = new ArrayBlockingQueue<Integer>(5);  // ArrayBlockingQueue has finite capacity.
+		
+		// First element(head)of queue
+		try {
+			System.out.println(q1.element());
+		}
+		catch(Exception e) {
+			System.out.println("Queue q1 is empty");
+		}
+		
+		// Adding elements using add()
+		q1.add(3);
+		q1.add(5);
+		q1.add(2);
+		q1.add(8);
+		q1.add(10);
+		
+		try {
+			q1.add(6);
+		}
+		catch(Exception e) {
+			System.out.println("Tried adding too many elements. Queue q1 is full.");
+		}
+		
+		
+		// Iterating
+		for(Integer value:q1) {
+			System.out.println("q1 value: " + value);
+		}
+		
+		
+		// First element(head)of queue
+		System.out.println("Head of q1 : " + q1.element());  // 3
+		
+		
+		// Removing items using remove()
+		System.out.println("Item removed from q1 : " + q1.remove());  // 3 is removed
+		
+		System.out.println("New head of q1 : " + q1.element());  // 5
+		
+		System.out.println("Item removed from q1 : " + q1.remove());  // 5 is removed
+		System.out.println("Item removed from q1 : " + q1.remove());  // 2 is removed
+		System.out.println("Item removed from q1 : " + q1.remove());  // 8 is removed
+		System.out.println("Item removed from q1 : " + q1.remove());  // 10 is removed
+		
+		try {
+			q1.remove();
+			}
+		catch(Exception e) {
+			System.out.println("Tried removing too many elements. Queue q1 is empty.");
+		}
+		
+		
+		System.out.println();
+
+
+
+
+
+		
+		// Using methods that don't throw exceptions
+		System.out.println("Using methods that do not throw exceptions");
+		
+		Queue <Integer> q2  = new ArrayBlockingQueue<Integer>(3);
+		
+		// peek() to get head of queue
+		System.out.println("Head of Queue q2 : " + q2.peek());   // returns head of queue. If queue is empty, returns null (does not throw exception).
+		
+		// Adding elements using offer()
+		q2.offer(45);
+		q2.offer(89);
+		q2.offer(20);
+		q2.offer(49);    // ignores it
+		System.out.println(q2.offer(49));   // has value false
+		
+		if(q2.offer(49) == false) {
+			System.out.println("Offer failed to add 4th item.");
+		}
+		
+		
+		// Iterating
+				for(Integer value:q2) {
+					System.out.println("q2 value: " + value);
+				}
+		
+		
+		// First element of queue
+		System.out.println("Head of Queue q2 : " + q2.peek());
+				
+				
+		// Removing elements using poll()
+		System.out.println("Item removed from q2 : " + q2.poll());  // 45 removed
+		System.out.println("Item removed from q2 : " + q2.poll());  // 89 removed
+		System.out.println("Item removed from q2 : " + q2.poll());  // 20 removed
+		System.out.println("Item removed from q2 : " + q2.poll());  // returns null
+		
+		
+	}
+}
+
+
+
+
+// output
+
+Using methods that throw exceptions
+Queue q1 is empty
+Tried adding too many elements. Queue q1 is full.
+q1 value: 3
+q1 value: 5
+q1 value: 2
+q1 value: 8
+q1 value: 10
+Head of q1 : 3
+Item removed from q1 : 3
+New head of q1 : 5
+Item removed from q1 : 5
+Item removed from q1 : 2
+Item removed from q1 : 8
+Item removed from q1 : 10
+Tried removing too many elements. Queue q1 is empty.
+
+Using methods that do not throw exceptions
+Head of Queue q2 : null
+false
+Offer failed to add 4th item.
+q2 value: 45
+q2 value: 89
+q2 value: 20
+Head of Queue q2 : 45
+Item removed from q2 : 45
+Item removed from q2 : 89
+Item removed from q2 : 20
+Item removed from q2 : null
+
+		
+		
